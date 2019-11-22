@@ -1,0 +1,42 @@
+﻿
+
+
+【配置过程】：
+
+git init  通过命令 git init 把这个目录变成git可以管理的仓库
+
+复制key，粘贴
+clip < ~/.ssh/id_rsa.pub
+
+验证是否成功：
+ssh -T git@github.com
+
+git config --global user.name "Alwaysion"
+git config --global user.email "790693499@qq.com"
+
+git config --list   看看是否配置成功
+
+git  config --global 参数，有了这个参数表示你这台机器上所有的git仓库都会使用这个配置，当然你也可以对某个仓库指定不同的用户名和邮箱
+
+【文件提交】：
+把文件加到暂存区
+git add test1.txt
+
+把文件提交到仓库
+git commit -m 'test1.txt'
+
+查看是否还有文件未提交
+git status
+
+查看修改了什么内容
+git diff test1.txt
+
+【把一个已有的本地仓库与之关联，然后，把本地仓库的内容推送到GitHub仓库】
+git remote add origin https://github.com/Alwaysion/test_repo.git
+
+本地库的内容推送到远程并建立连接   ，由于远程库是空的，我们第一次推送master分支时，加上了 –u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。
+git push -u origin master
+
+再次修改内容的时候，只要重新加到暂存区和提交到仓库，再运行下方语句就可以了
+git push origin master
+
